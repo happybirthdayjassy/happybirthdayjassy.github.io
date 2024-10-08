@@ -114,6 +114,22 @@
             }
         }
 
+        /* Button Styling */
+        #playButton {
+            background-color: #ff6666;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #playButton:hover {
+            background-color: #ff4d4d;
+        }
+
     </style>
 </head>
 <body>
@@ -133,12 +149,14 @@
         <li><a href="https://www.youtube.com/watch?v=tVj0ZTS4WF4" target="_blank">🌟 5: Surprise!</a></li>
     </ul>
 
+    <button id="playButton">Play Background Music 🎵</button>
+
     <footer>
         Made with love, just for you, my Jassy big-assy baby.
     </footer>
 
     <!-- Background Music -->
-    <audio autoplay loop>
+    <audio id="backgroundMusic" loop>
         <source src="love.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -148,6 +166,14 @@
 
     <script>
         const heartRain = document.getElementById("heart-rain");
+        const playButton = document.getElementById("playButton");
+        const backgroundMusic = document.getElementById("backgroundMusic");
+
+        // Play music when button is clicked
+        playButton.addEventListener("click", () => {
+            backgroundMusic.play();
+            playButton.style.display = 'none'; // Hide play button after click
+        });
 
         function createHeart() {
             const heart = document.createElement("div");

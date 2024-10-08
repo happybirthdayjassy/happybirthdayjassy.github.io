@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6666;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+        }
+
+        .message {
+            margin: 30px 0;
+            font-size: 1.5em;
+            color: #ff4d4d;
+        }
+
+        .video-links {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .video-links li {
+            margin: 10px 0;
+        }
+
+        .video-links a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #0066cc;
+        }
+
+        .video-links a:hover {
+            color: #ff1a1a;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Heart Rain CSS */
+        .heart-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(150%); /* Make hearts fall deeper */
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday, Jasmine!</h1>
+    
+    <p class="message">
+     Hello Jasmine, I have made something really special for your 17th Birthday.
+     I recorded a few YouTube Videos for you to watch when you miss your Boyfriend. And here’s a riddle: At the end of each video, the secret word will be hinted at. If you get all the secret words, tell them to me, and you will receive extra love for being attentive <3.
+    </p>
+
+    <ul class="video-links">
+        <li><a href="https://www.youtube.com/watch?v=yoe4F_alu_g" target="_blank">🛫 1: The Introduction</a></li>
+        <li><a href="https://www.youtube.com/watch?v=jeMrJzBnKzw" target="_blank">🌙 2: Night Walk (10 mins)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank">🌲 3: Long Forest Walk</a></li>
+        <li><a href="https://www.youtube.com/watch?v=tVj0ZTS4WF4" target="_blank">🌟 4: Me Studying</a></li>
+        <li><a href="https://www.youtube.com/watch?v=tVj0ZTS4WF4" target="_blank">🌟 5: Surprise!</a></li>
+    </ul>
+
+    <footer>
+        Made with love, just for you, my Jassy big-assy baby.
+    </footer>
+
+    <!-- Heart Rain Effect -->
+    <div class="heart-rain" id="heart-rain"></div>
+
+    <script>
+        const heartRain = document.getElementById("heart-rain");
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Random fall speed
+            heartRain.appendChild(heart);
+
+            // Remove hearts after animation ends
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 150); // Generate hearts every 150ms
+    </script>
+
+</body>
+</html>

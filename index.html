@@ -10,31 +10,33 @@
             background-color: #ffe6e6;
             color: #333;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
             overflow: hidden;
+            margin: 0;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             color: #ff6666;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.2em;
-            line-height: 1.6em;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
         .message {
-            margin: 30px 0;
-            font-size: 1.5em;
+            margin: 20px 0;
+            font-size: 1.3rem;
             color: #ff4d4d;
         }
 
         .video-links {
             list-style-type: none;
             padding: 0;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .video-links li {
@@ -43,7 +45,7 @@
 
         .video-links a {
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.2rem;
             color: #0066cc;
         }
 
@@ -52,9 +54,10 @@
         }
 
         footer {
-            margin-top: 40px;
-            font-size: 0.9em;
+            margin-top: 30px;
+            font-size: 0.9rem;
             color: #555;
+            padding-bottom: 50px; /* Add some space to the bottom */
         }
 
         /* Heart Rain CSS */
@@ -70,9 +73,9 @@
 
         .heart {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            font-size: 2.5rem;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
             color: #ff4d4d;
             animation: fall linear infinite;
         }
@@ -83,8 +86,31 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(150%); /* Make hearts fall deeper */
+                transform: translateY(150%);
                 opacity: 0;
+            }
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 1.2rem;
+            }
+
+            .video-links a {
+                font-size: 1.1rem;
             }
         }
 
@@ -95,8 +121,8 @@
     <h1>Happy Birthday, Jasmine!</h1>
     
     <p class="message">
-     Hello Jasmine, I have made something really special for your 17th Birthday.
-     I recorded a few YouTube Videos for you to watch when you miss your Boyfriend. And here’s a riddle: At the end of each video, the secret word will be hinted at. If you get all the secret words, tell them to me, and you will receive extra love for being attentive <3.
+        Hello Jasmine, I have made something really special for your 17th Birthday.
+        I recorded a few YouTube Videos for you to watch when you miss your Boyfriend. And here’s a riddle: At the end of each video, the secret word will be hinted at. If you get all the secret words, tell them to me, and you will receive extra love for being attentive <3.
     </p>
 
     <ul class="video-links">
@@ -128,16 +154,16 @@
             heart.innerHTML = "❤️";
             heart.classList.add("heart");
             heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
-            heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Random fall speed
+            heart.style.animationDuration = Math.random() * 2 + 4 + "s"; // Random fall speed (slightly slower for mobile)
             heartRain.appendChild(heart);
 
             // Remove hearts after animation ends
             setTimeout(() => {
                 heart.remove();
-            }, 5000);
+            }, 6000);
         }
 
-        setInterval(createHeart, 150); // Generate hearts every 150ms
+        setInterval(createHeart, 200); // Generate hearts every 200ms (slower on mobile)
     </script>
 
 </body>
